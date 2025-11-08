@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* Project Section / Small Card Styles */
+.projects-section .heading {
+  font-size: 2.4rem;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  margin-bottom: 2.1rem;
+  color: var(--text-color);
+  letter-spacing: 2px;
+}
+.projects-section .heading span {
+  color: var(--main-color);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.project-card.small {
+  background: var(--bg-color);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px var(--shadow-color);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.23s, box-shadow 0.2s, border-color 0.2s;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  max-width: 270px;
+  margin: 0 auto;
+}
+.project-card.small:hover {
+  transform: translateY(-5px) scale(1.04);
+  border-color: var(--main-color);
+  box-shadow: 0 6px 30px -7px var(--main-color);
+}
+
+.project-img-wrap {
+  width: 100%;
+  height: 110px;
+  background: #f5f4fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(.48,.23,.65,1.38);
+}
+.project-card.small:hover .project-img {
+  transform: scale(1.13) rotate(-2deg);
+}
+
+.project-content {
+  padding: 1.2rem 0.9rem 1.1rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+.project-title {
+  font-size: 1.23rem;
+  font-weight: 700;
+  color: var(--main-color);
+  margin-bottom: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.project-desc {
+  font-size: 1.01rem;
+  color: var(--text-color);
+  opacity: 0.86;
+  font-weight: 500;
+  min-height: 32px;
+  margin-bottom: 0.2rem;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+}
+
+.tech-stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.41rem;
+  margin-top: 0.5rem;
+  justify-content: flex-start;
+}
+.tech-badge {
+  display: inline-block;
+  font-size: 0.92rem;
+  line-height: 1.2;
+  font-weight: 700;
+  border-radius: 0.45rem;
+  padding: 0.24rem 0.98rem;
+  margin: 0;
+  box-shadow: 0 1px 5px rgba(80,60,190, .1);
+  background: #ede5fe;
+  color: #392c59;
+  border: 1.5px solid var(--main-color);
+  transition: background 0.26s, color 0.24s, border 0.26s, transform 0.24s;
+  letter-spacing: 0.04em;
+  position: relative;
+}
+.tech-badge.html {
+  background: linear-gradient(90deg, #ffd6a1 70%, #ffe6c0 100%);
+  color: #b25900;
+  border-color: #ffa241;
+}
+.tech-badge.css {
+  background: linear-gradient(90deg, #a1d8fd 70%, #c0e2ff 100%);
+  color: #19548a;
+  border-color: #45aaff;
+}
+.tech-badge.js {
+  background: linear-gradient(90deg, #ffefa1 70%, #fff8c0 100%);
+  color: #706a00;
+  border-color: #ffe32b;
+}
+.tech-badge.react {
+  background: linear-gradient(90deg, #b5fcff 70%, #d0faff 100%);
+  color: #09a1bb;
+  border-color: #48e3ff;
+}
+.tech-badge.node {
+  background: linear-gradient(90deg, #c7fec1 70%, #e0ffdc 100%);
+  color: #2b683c;
+  border-color: #25c331;
+}
+.tech-badge.mongo {
+  background: linear-gradient(90deg, #b1fabd 70%, #c4f8cb 100%);
+  color: #10a049;
+  border-color: #28c87b;
+}
+/* Add more custom classes for other languages as needed */
+.tech-badge:hover {
+  transform: scale(1.18) rotate(-3deg);
+  background: var(--main-color);
+  color: var(--white-color);
+  border-color: #4e2db1;
+  z-index: 1;
+}
+
+@media (max-width: 650px) {
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+  .project-card.small { max-width: 99vw; }
+}
+@media (max-width: 500px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-card.small { max-width: 98vw; }
+  .project-title, .project-desc { font-size: 1rem; }
+  .tech-badge { font-size: 0.9rem; }
+}
+
+
+    </style>
+</head>
+<body>
+    <section class="projects-section" id="projects">
+        <h2 class="heading">
+          <span>My Projects</span>
+        </h2>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card small">
+            <div class="project-img-wrap">
+              <img src="project1.jpg" alt="Portfolio Website" class="project-img" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Portfolio Website</h3>
+              <p class="project-desc">
+                Responsive personal portfolio with smooth animations and dark mode.
+              </p>
+              <div class="tech-stack-row">
+                <span class="tech-badge html">HTML</span>
+                <span class="tech-badge css">CSS</span>
+                <span class="tech-badge js">JavaScript</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="project-card small">
+            <div class="project-img-wrap">
+              <img src="project2.jpg" alt="E-Commerce App" class="project-img" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">E-Commerce App</h3>
+              <p class="project-desc">
+                Full stack shopping app with payment gateway and filters.
+              </p>
+              <div class="tech-stack-row">
+                <span class="tech-badge react">React</span>
+                <span class="tech-badge node">Node.js</span>
+                <span class="tech-badge mongo">MongoDB</span>
+              </div>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div class="project-card small">
+            <div class="project-img-wrap">
+              <img src="project3.jpg" alt="Weather Dashboard" class="project-img" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Weather Dashboard</h3>
+              <p class="project-desc">
+                Weather app using API. Live/weekly data and region search.
+              </p>
+              <div class="tech-stack-row">
+                <span class="tech-badge html">HTML</span>
+                <span class="tech-badge css">CSS</span>
+                <span class="tech-badge js">JavaScript</span>
+              </div>
+            </div>
+          </div>
+          <!-- Add More Projects as needed -->
+        </div>
+      </section>
+      
+</body>
+</html>
